@@ -1,0 +1,22 @@
+vector<int> findCommonElements(vector<int> &a, vector<int> &b){
+    vector<int> res = {};
+    int i = 0, j = 0;
+   // vector<int> temp = {};
+    if(a.empty() || b.empty()) return res;
+    /*for(auto &i: a){
+        temp.push_back(i);
+    }*/
+   sort(a.begin(), a.end());
+   sort(b.begin(), b.end());
+   while(i < a.size() && j < b.size()){
+       if(a[i] > b[j]) ++j; 
+       if(a[i] < b[j]) ++i;
+       else{
+       ++i; 
+       ++j; 
+       res.push_back(a[i]);
+       }
+   }
+    return res;
+}
+
